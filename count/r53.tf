@@ -1,5 +1,6 @@
 resource "aws_route53_record" "roboshop" {
-  count = 4
+  count = length(var.instances)
+  #count = 10
   zone_id = "${var.zone_id}"
   name    = "${var.instances[count.index]}.${var.domain_name}" # mongodb.daws86s.fun
   type    = "A"

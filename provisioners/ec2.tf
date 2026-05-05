@@ -7,6 +7,15 @@ resource "aws_instance" "terraform" {
         Name = "terraform-1"
         Terraform = "true"
     }
+    provisioner "local-exec" {
+        command = "echo ${self.private_ip} > inventory"
+        on_failure = continue
+  }
+    provisioner "local-exec"{
+      command = "echo Instance is destroyed"
+      when    = destroy
+    }
+
 }
 
 resource "aws_security_group" "allow_everyhost" {       #here allow_everyhost is Terraform Reference 
