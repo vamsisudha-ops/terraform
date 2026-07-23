@@ -11,17 +11,17 @@ resource "aws_instance" "terraform" {
     # }
 }
 
-# resource "aws_instance" "another" {
-#     ami = "ami-0220d79f3f480ecf5"
-#     instance_type = "t3.micro"
-#     tags = {
-#         Name = "another"
-#         Terraform = "true"
-#     }
+resource "aws_instance" "another" {
+    ami = "ami-0220d79f3f480ecf5"
+    instance_type = "t3.micro"
+    tags = {
+        Name = "another"
+        Terraform = "true"
+    }
 #     /* lifecycle{
 #       prevent_destroy = true
 #     } */
-# }
+}
 
 resource "aws_security_group" "lifecycle" {
   name   = "lifecycle_change"
@@ -45,7 +45,7 @@ resource "aws_security_group" "lifecycle" {
   }
   lifecycle {
     create_before_destroy = true
-    prevent_destroy = true
+  #   prevent_destroy = true
   }
 
 }
