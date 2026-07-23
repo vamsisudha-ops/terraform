@@ -10,7 +10,7 @@ resource "aws_vpc" "dev" {
 }
 
 resource "aws_vpc" "prod" {
-  provider = aws.Prod
+  provider = aws.prod
   cidr_block       = "10.1.0.0/16"
   instance_tenancy = "default"
   enable_dns_hostnames = true
