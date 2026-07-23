@@ -18,9 +18,9 @@ resource "aws_instance" "another" {
         Name = "another"
         Terraform = "true"
     }
-#     /* lifecycle{
-#       prevent_destroy = true
-#     } */
+     lifecycle{
+       prevent_destroy = true
+     }
 }
 
 resource "aws_security_group" "lifecycle" {
