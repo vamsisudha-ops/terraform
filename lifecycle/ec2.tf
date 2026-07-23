@@ -43,9 +43,9 @@ resource "aws_security_group" "lifecycle" {
   tags = {
     Name = "lifecycle"
   }
-  # lifecycle {
-  #   create_before_destroy = true
-    # prevent_destroy = true
-  # }
+  lifecycle {
+    create_before_destroy = true
+    prevent_destroy = true
+  }
 
 }
