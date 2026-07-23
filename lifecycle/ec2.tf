@@ -24,7 +24,7 @@ resource "aws_instance" "terraform" {
 # }
 
 resource "aws_security_group" "lifecycle" {
-  name   = "lifecycle_change"
+  name   = "lifecycle"
 
   egress {
     from_port        = 0 # from port 0 to to port 0 means all ports
