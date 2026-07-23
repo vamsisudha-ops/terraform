@@ -6,25 +6,25 @@ resource "aws_instance" "terraform" {
         Name = "lifecycle"
         Terraform = "true"
     }
-    lifecycle{
-      prevent_destroy = true
-    }
+    # lifecycle{
+    #   prevent_destroy = true
+    # }
 }
 
-resource "aws_instance" "another" {
-    ami = "ami-0220d79f3f480ecf5"
-    instance_type = "t3.micro"
-    tags = {
-        Name = "another"
-        Terraform = "true"
-    }
-    /* lifecycle{
-      prevent_destroy = true
-    } */
-}
+# resource "aws_instance" "another" {
+#     ami = "ami-0220d79f3f480ecf5"
+#     instance_type = "t3.micro"
+#     tags = {
+#         Name = "another"
+#         Terraform = "true"
+#     }
+#     /* lifecycle{
+#       prevent_destroy = true
+#     } */
+# }
 
 resource "aws_security_group" "lifecycle" {
-  name   = "lifecycle_change"
+  name   = "lifecycle"
 
   egress {
     from_port        = 0 # from port 0 to to port 0 means all ports
@@ -43,9 +43,9 @@ resource "aws_security_group" "lifecycle" {
   tags = {
     Name = "lifecycle"
   }
-  # lifecycle {
-  #   create_before_destroy = true
-  #   prevent_destroy = true
-  # }
+  lifecycle {
+    create_before_destroy = true
+    # prevent_destroy = true
+  }
 
 }
